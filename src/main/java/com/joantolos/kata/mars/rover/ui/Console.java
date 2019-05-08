@@ -4,7 +4,7 @@ import com.joantolos.kata.mars.rover.domain.Mars;
 
 public class Console {
 
-    public Boolean prompt(){
+    public void prompt(){
         System.out.println("  __    __     _                           ");
         System.out.println(" / / /\\ \\ \\___| | ___ ___  _ __ ___   ___  ");
         System.out.println(" \\ \\/  \\/ / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ ");
@@ -21,17 +21,14 @@ public class Console {
         System.out.println("Type exit to stop the exploration.");
         System.out.println("Mind the obstacles!");
         System.out.println("");
-        return true;
     }
 
-    public Boolean print(String toPrint){
+    public void print(String toPrint){
         System.out.println(toPrint);
-        return true;
     }
 
-    public Boolean exit() {
+    public void exit() {
         System.out.print("\nDisconnected from Mars rover\n\n");
-        return true;
     }
 
 }

@@ -4,6 +4,7 @@ import com.joantolos.kata.mars.rover.domain.Movements;
 import com.joantolos.kata.mars.rover.domain.Rover;
 import com.joantolos.kata.mars.rover.ui.Console;
 import com.joantolos.kata.mars.rover.tools.Compass;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
