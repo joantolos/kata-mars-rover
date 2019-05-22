@@ -11,8 +11,8 @@ class MarsSpec extends Specification {
         mars = new Mars()
     }
 
-    def 'Mars should have four random obstacles' () {
+    def 'Mars should have one random obstacle' () {
         expect:
-        mars.obstacles().size() == 1
+        mars.getObstacles().size() == 1
     }
 }

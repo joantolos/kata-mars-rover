@@ -15,11 +15,11 @@ public class Console {
         System.out.println("  \\__\\___/  \\/    \\/\\__,_|_|  |___/        ");
         System.out.println("                                           ");
         System.out.println("Your rover is located by default at the 0, 0 position and it's facing North.");
-        System.out.println("Every run of the program places a maximum of four random obstacles on the planet surface, represented by " + Mars.OBSTACLE);
+        System.out.println("Every run of the program places a maximum of four random createObstacles on the planet surface, represented by " + Mars.OBSTACLE);
         System.out.println("Your position on the planet is represented by an arrow pointing where the rover is facing (\u2191, \u2193, \u2190 or \u2192)");
         System.out.println("Type f to go forwards, b to go backwards, N to locate north, S to locate south, E to locate east and W to locate west.");
         System.out.println("Type exit to stop the exploration.");
-        System.out.println("Mind the obstacles!");
+        System.out.println("Mind the createObstacles!");
         System.out.println("");
     }
 

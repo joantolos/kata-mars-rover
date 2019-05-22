@@ -10,26 +10,18 @@ import java.util.stream.IntStream;
 public class Mars {
 
     private Integer size;
-    private Integer maxObstacle;
-    public final static String OBSTACLE = "\u1040";
-    private static List<Position> obstacles = new ArrayList<>();
+    public static final String OBSTACLE = "\u1040";
+    private List<Position> obstacles = new ArrayList<>();
 
     public Mars() throws IOException {
-        Properties prop = new Properties();
-        prop.load(this.getClass().getResourceAsStream("/mars.properties"));
-        this.size = Integer.valueOf(prop.getProperty("size"));
-        this.maxObstacle = Integer.valueOf(prop.getProperty("max.obstacles"));
+        Properties marsConfig = new Properties();
+        marsConfig.load(this.getClass().getResourceAsStream("/mars.properties"));
+        this.size = Integer.valueOf(marsConfig.getProperty("size"));
+        this.createObstacles(Integer.valueOf(marsConfig.getProperty("max.obstacles")));
     }
 
-    public List<Position> obstacles() {
-        if(obstacles.size() == 0) {
-            repeat(maxObstacle, () -> obstacles.add(new Position(randomPoint(), randomPoint())));
-        }
-        return obstacles;
-    }
-
-    private void repeat(int count, Runnable action) {
-        IntStream.range(0, count).forEach(i -> action.run());
+    public void createObstacles(Integer maxObstacle) {
+        IntStream.range(0, maxObstacle).forEach(i -> obstacles.add(new Position(randomPoint(), randomPoint())));
     }
 
     private int randomPoint() {
@@ -38,5 +30,9 @@ public class Mars {
 
     public Integer getSize() {
         return size;
+    }
+
+    public List<Position> getObstacles() {
+        return obstacles;
     }
 }

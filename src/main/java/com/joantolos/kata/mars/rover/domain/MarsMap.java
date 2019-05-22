@@ -31,7 +31,7 @@ public class MarsMap extends Mars {
     }
 
     public Boolean isPositionAvailable(Position position){
-        return super.obstacles().stream().filter(obstacle -> obstacle.equals(position)).findFirst().orElse(null)==null;
+        return super.getObstacles().stream().filter(obstacle -> obstacle.equals(position)).findFirst().orElse(null)==null;
     }
 
     public String[][] getCoordinates() {

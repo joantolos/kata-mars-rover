@@ -1,9 +1,5 @@
-package com.joantolos.kata.mars.rover.rover
+package com.joantolos.kata.mars.rover.domain
 
-import com.joantolos.kata.mars.rover.domain.MarsMap
-import com.joantolos.kata.mars.rover.domain.Movements
-import com.joantolos.kata.mars.rover.domain.Position
-import com.joantolos.kata.mars.rover.domain.Rover
 import com.joantolos.kata.mars.rover.tools.Compass
 import com.joantolos.kata.mars.rover.ui.Console
 import spock.lang.Shared
@@ -39,14 +35,14 @@ class RoverSpec extends Specification {
         where: 'The rover is facing all possible directions'
         startingX   |   startingY   ||   direction          |   expectingX  |   expectingY
         1           |   1           ||   Compass.NORTH      |   1           |   2
-        1           |   1           ||   Compass.SOUTH      |   1           |   9
+        1           |   1           ||   Compass.SOUTH      |   1           |   0
         1           |   1           ||   Compass.EAST       |   2           |   1
-        1           |   1           ||   Compass.WEST       |   9           |   1
+        1           |   1           ||   Compass.WEST       |   0           |   1
 
         9           |   9           ||   Compass.NORTH      |   9           |   0
-        1           |   1           ||   Compass.SOUTH      |   1           |   9
+        1           |   1           ||   Compass.SOUTH      |   1           |   0
         9           |   9           ||   Compass.EAST       |   0           |   9
-        1           |   1           ||   Compass.WEST       |   9           |   1
+        1           |   1           ||   Compass.WEST       |   0           |   1
     }
 
     def 'Mars Rover should move backwards when facing every direction, including edge positions' () {
@@ -60,15 +56,15 @@ class RoverSpec extends Specification {
 
         where: 'The rover is facing all possible directions'
         startingX   |   startingY   ||   direction          |   expectingX  |   expectingY
-        1           |   1           ||   Compass.NORTH      |   1           |   9
+        1           |   1           ||   Compass.NORTH      |   1           |   0
         1           |   1           ||   Compass.SOUTH      |   1           |   2
-        1           |   1           ||   Compass.EAST       |   9           |   1
+        1           |   1           ||   Compass.EAST       |   0           |   1
         1           |   1           ||   Compass.WEST       |   2           |   1
 
         9           |   9           ||   Compass.SOUTH      |   9           |   0
-        1           |   1           ||   Compass.NORTH      |   1           |   9
+        1           |   1           ||   Compass.NORTH      |   1           |   0
         9           |   9           ||   Compass.WEST       |   0           |   9
-        1           |   1           ||   Compass.EAST       |   9           |   1
+        1           |   1           ||   Compass.EAST       |   0           |   1
     }
 
     def 'Should send command stream to rover' () {
@@ -79,7 +75,7 @@ class RoverSpec extends Specification {
         rover.sendSequence('fbEbNfSW')
 
         then:
-        rover.position == new Position(9, 2)
+        rover.position == new Position(0, 2)
         rover.direction == Compass.WEST
     }
 

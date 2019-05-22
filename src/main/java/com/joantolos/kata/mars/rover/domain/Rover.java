@@ -23,7 +23,7 @@ public class Rover {
         for(char command: commandStream.toCharArray()){
             Movements movement = Movements.byCommand(String.valueOf(command).toLowerCase());
             if(movement != null) {
-                Boolean movementSuccess = move(movement);
+                Boolean movementSuccess = this.move(movement);
                 marsMap.render(currentPosition, currentDirection);
                 if (!movementSuccess) {
                     this.console.print("Obstacle found! Aborting sequence...");
@@ -37,7 +37,7 @@ public class Rover {
         return true;
     }
 
-    public Boolean move(Movements movement){
+    protected Boolean move(Movements movement){
         Position positionProposal = this.currentPosition;
         switch (movement) {
             case FORWARD:
@@ -93,17 +93,15 @@ public class Rover {
     }
 
     private Integer decrement(Integer point) {
-        Integer pointCandidate;
-        pointCandidate = point - 1;
-        if (pointCandidate <= 0) {
+        Integer pointCandidate = point - 1;
+        if (pointCandidate < 0) {
             pointCandidate = marsMap.getSize() - 1;
         }
         return pointCandidate;
     }
 
     private Integer increment(Integer point) {
-        Integer pointCandidate;
-        pointCandidate = point + 1;
+        Integer pointCandidate = point + 1;
         if (pointCandidate >= marsMap.getSize()) {
             pointCandidate = 0;
         }

@@ -1,4 +1,4 @@
-package com.joantolos.kata.mars.rover.rover
+package com.joantolos.kata.mars.rover.domain
 
 import com.joantolos.kata.mars.rover.domain.MarsMap
 import com.joantolos.kata.mars.rover.domain.Position
