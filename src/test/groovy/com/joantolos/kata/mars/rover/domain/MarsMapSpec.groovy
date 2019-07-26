@@ -1,7 +1,5 @@
 package com.joantolos.kata.mars.rover.domain
 
-import com.joantolos.kata.mars.rover.domain.MarsMap
-import com.joantolos.kata.mars.rover.domain.Position
 import com.joantolos.kata.mars.rover.tools.Compass
 import spock.lang.Shared
 import spock.lang.Specification
@@ -16,7 +14,7 @@ class MarsMapSpec extends Specification {
 
     def 'Mars map should return initial coordinates state' () {
         expect:
-        marsMap.getCoordinates()[0][0] == '[ ↑ ]'
+        marsMap.coordinates[0][0] == '[ ↑ ]'
     }
 
     def 'Mars map should return new position' () {
@@ -24,8 +22,8 @@ class MarsMapSpec extends Specification {
         marsMap.render(new Position(0, 1), Compass.EAST)
 
         expect:
-        marsMap.getCoordinates()[0][0] == '[   ]'
-        marsMap.getCoordinates()[1][0] == '[ → ]'
+        marsMap.coordinates[0][0] == '[   ]'
+        marsMap.coordinates[1][0] == '[ → ]'
     }
 
     def 'Mars map should return initial position' () {

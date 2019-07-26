@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class MarsMap extends Mars {
 
-    private String[][] coordinates;
+    String[][] coordinates;
 
     public MarsMap(Position position, Compass compass) throws IOException {
         super();
@@ -32,10 +32,6 @@ public class MarsMap extends Mars {
 
     public Boolean isPositionAvailable(Position position){
         return super.getObstacles().stream().filter(obstacle -> obstacle.equals(position)).findFirst().orElse(null)==null;
-    }
-
-    public String[][] getCoordinates() {
-        return coordinates;
     }
 
     public String printable() {

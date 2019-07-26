@@ -9,8 +9,8 @@ public class Rover {
 
     private MarsMap marsMap;
     private Position currentPosition;
-    private Compass currentDirection;
     private Console console;
+    Compass currentDirection;
 
     public Rover(Integer x, Integer y, Compass direction, Console console) throws IOException {
         this.currentPosition = new Position(x, y);
@@ -110,10 +110,6 @@ public class Rover {
 
     public Position getPosition() {
         return this.currentPosition;
-    }
-
-    public Compass getDirection() {
-        return currentDirection;
     }
 
     public MarsMap getMarsMap() {

@@ -4,7 +4,6 @@ import com.joantolos.kata.mars.rover.domain.Movements;
 import com.joantolos.kata.mars.rover.domain.Rover;
 import com.joantolos.kata.mars.rover.ui.Console;
 import com.joantolos.kata.mars.rover.tools.Compass;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -41,5 +40,28 @@ public class RoverSteps {
     @When("^I send the command sequence \"([^\"]*)\"$")
     public void iSendTheCommandSequence(String sequence) {
         this.rover.sendSequence(sequence);
+    }
+
+    @Then("^mars map should be printable$")
+    public void marsMapShouldBePrintable() {
+        Assert.assertNotNull(this.rover.getMarsMap().printable());
+    }
+
+    @Then("^the rover should abort sequence when obstacle found$")
+    public void theRoverShouldAbortSequenceWhenObstacleFound() {
+        Integer numberOfMovementsMade = 0;
+
+        for(int i=1; i<= rover.getMarsMap().getSize(); i++){
+            for(int j=1; j<= rover.getMarsMap().getSize(); j++){
+                if(!rover.sendSequence("f"))
+                    break;
+                    numberOfMovementsMade++;
+            }
+            if(!rover.sendSequence("EfS"))
+                break;
+        }
+
+        Integer maximumSquaresPossible = rover.getMarsMap().getSize() * rover.getMarsMap().getSize();
+        Assert.assertTrue(numberOfMovementsMade < maximumSquaresPossible);
     }
 }

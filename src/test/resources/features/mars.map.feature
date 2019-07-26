@@ -14,3 +14,7 @@ Feature: The Rover and the control room at NASA maintain the same representation
     When I perform a "forward" move
     Then the position of the mars rover is 0, 1
 
+  @Map.Printable
+  Scenario: Mars map should be printable
+    Given I set the mars rover on the 0, 0 position of the Mars grid
+    Then mars map should be printable

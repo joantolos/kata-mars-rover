@@ -76,7 +76,7 @@ class RoverSpec extends Specification {
 
         then:
         rover.position == new Position(0, 2)
-        rover.direction == Compass.WEST
+        rover.currentDirection == Compass.WEST
     }
 
     def 'Should fail when sending and invalid command' () {
