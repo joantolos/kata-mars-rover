@@ -20,7 +20,7 @@ public class Mars {
         this.createObstacles(Integer.valueOf(marsConfig.getProperty("max.obstacles")));
     }
 
-    public void createObstacles(Integer maxObstacle) {
+    private void createObstacles(Integer maxObstacle) {
         IntStream.range(0, maxObstacle).forEach(i -> obstacles.add(new Position(randomPoint(), randomPoint())));
     }
 
