@@ -34,7 +34,7 @@ public class MarsMap extends Mars {
         return super.getObstacles().stream().filter(obstacle -> obstacle.equals(position)).findFirst().orElse(null)==null;
     }
 
-    public String printable() {
+    public String getPrintable() {
         StringBuilder printableMap = new StringBuilder();
         for(int x = getSize() - 1; x >= 0; x--) {
             for(int y = 0; y < getSize() ; y++){

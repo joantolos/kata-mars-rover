@@ -44,7 +44,7 @@ public class RoverSteps {
 
     @Then("^mars map should be printable$")
     public void marsMapShouldBePrintable() {
-        Assert.assertNotNull(this.rover.getMarsMap().printable());
+        Assert.assertNotNull(this.rover.getMarsMap().getPrintable());
     }
 
     @Then("^the rover should abort sequence when obstacle found$")

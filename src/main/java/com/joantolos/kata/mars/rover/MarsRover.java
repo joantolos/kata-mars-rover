@@ -15,13 +15,13 @@ public class MarsRover {
         String commandSequence;
 
         console.prompt();
-        console.print(rover.getMarsMap().printable());
+        console.print(rover.getMarsMap().getPrintable());
         do {
             console.print("\nEnter your command sequence > ");
             commandSequence = new Scanner(System.in).nextLine();
             if(!commandSequence.equals("exit")) {
                 rover.sendSequence(commandSequence);
-                console.print(rover.getMarsMap().printable());
+                console.print(rover.getMarsMap().getPrintable());
             }
         } while (!commandSequence.equals("exit"));
         console.exit();

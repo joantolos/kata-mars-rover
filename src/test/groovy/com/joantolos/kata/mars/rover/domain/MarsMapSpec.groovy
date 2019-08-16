@@ -34,6 +34,6 @@ class MarsMapSpec extends Specification {
     def 'Mars map should return a printable map' () {
         given: 'I mark the new Mars rover position'
         MarsMap map = new MarsMap(new Position(0,0), Compass.NORTH)
-        map.printable() != null
+        map.getPrintable() != null
     }
 }
