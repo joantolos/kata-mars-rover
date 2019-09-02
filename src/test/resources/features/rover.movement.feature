@@ -16,17 +16,17 @@ Feature: Basic movement of the Rover vehicle: Forward and backward when facing e
 
   @Forward.South
   Scenario: Move the Rover forward when facing south
-    Given I set the mars rover on the 9, 9 position of the Mars grid
+    Given I set the mars rover on the 99, 99 position of the Mars grid
     And it is "south" oriented
     When I perform a "forward" move
-    Then the position of the mars rover is 9, 8
+    Then the position of the mars rover is 99, 98
 
   @Backward.South
   Scenario: Move the Rover backward when facing south
-    Given I set the mars rover on the 8, 8 position of the Mars grid
+    Given I set the mars rover on the 98, 98 position of the Mars grid
     And it is "south" oriented
     When I perform a "backward" move
-    Then the position of the mars rover is 8, 9
+    Then the position of the mars rover is 98, 99
 
   @Forward.East
   Scenario: Move the Rover forward when facing east

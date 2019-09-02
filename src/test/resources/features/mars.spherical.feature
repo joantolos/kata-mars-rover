@@ -2,7 +2,7 @@ Feature: When facing the edges of the grid, the rover should move to it's corres
 
   @All.The.Way.East
   Scenario: Move the Rover forward when being at the edge of the grid on the east
-    Given I set the mars rover on the 9, 0 position of the Mars grid
+    Given I set the mars rover on the 99, 0 position of the Mars grid
     And it is "east" oriented
     When I perform a "forward" move
     Then the position of the mars rover is 0, 0
@@ -12,11 +12,11 @@ Feature: When facing the edges of the grid, the rover should move to it's corres
     Given I set the mars rover on the 0, 0 position of the Mars grid
     And it is "west" oriented
     When I perform a "forward" move
-    Then the position of the mars rover is 9, 0
+    Then the position of the mars rover is 99, 0
 
   @All.The.Way.North
   Scenario: Move the Rover forward when being at the edge of the grid on the north
-    Given I set the mars rover on the 0, 9 position of the Mars grid
+    Given I set the mars rover on the 0, 99 position of the Mars grid
     And it is "north" oriented
     When I perform a "forward" move
     Then the position of the mars rover is 0, 0
@@ -26,4 +26,4 @@ Feature: When facing the edges of the grid, the rover should move to it's corres
     Given I set the mars rover on the 0, 0 position of the Mars grid
     And it is "south" oriented
     When I perform a "forward" move
-    Then the position of the mars rover is 0, 9
+    Then the position of the mars rover is 0, 99

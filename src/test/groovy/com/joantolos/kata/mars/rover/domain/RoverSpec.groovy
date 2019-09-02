@@ -39,9 +39,9 @@ class RoverSpec extends Specification {
         1           |   1           ||   Compass.EAST       |   2           |   1
         1           |   1           ||   Compass.WEST       |   0           |   1
 
-        9           |   9           ||   Compass.NORTH      |   9           |   0
+        99          |   99          ||   Compass.NORTH      |   99          |   0
         1           |   1           ||   Compass.SOUTH      |   1           |   0
-        9           |   9           ||   Compass.EAST       |   0           |   9
+        99          |   99          ||   Compass.EAST       |   0           |   99
         1           |   1           ||   Compass.WEST       |   0           |   1
     }
 
@@ -55,16 +55,16 @@ class RoverSpec extends Specification {
         rover.getPosition().y == expectingY
 
         where: 'The rover is facing all possible directions'
-        startingX   |   startingY   ||   direction          |   expectingX  |   expectingY
-        1           |   1           ||   Compass.NORTH      |   1           |   0
-        1           |   1           ||   Compass.SOUTH      |   1           |   2
-        1           |   1           ||   Compass.EAST       |   0           |   1
-        1           |   1           ||   Compass.WEST       |   2           |   1
+        startingX       |   startingY   ||   direction          |   expectingX  |   expectingY
+        1               |   1           ||   Compass.NORTH      |   1           |   0
+        1               |   1           ||   Compass.SOUTH      |   1           |   2
+        1               |   1           ||   Compass.EAST       |   0           |   1
+        1               |   1           ||   Compass.WEST       |   2           |   1
 
-        9           |   9           ||   Compass.SOUTH      |   9           |   0
-        1           |   1           ||   Compass.NORTH      |   1           |   0
-        9           |   9           ||   Compass.WEST       |   0           |   9
-        1           |   1           ||   Compass.EAST       |   0           |   1
+        99              |   99          ||   Compass.SOUTH      |   99          |   0
+        1               |   1           ||   Compass.NORTH      |   1           |   0
+        99              |   99          ||   Compass.WEST       |   0           |   99
+        1               |   1           ||   Compass.EAST       |   0           |   1
     }
 
     def 'Should send command stream to rover' () {
