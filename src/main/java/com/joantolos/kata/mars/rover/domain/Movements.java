@@ -1,22 +1,19 @@
 package com.joantolos.kata.mars.rover.domain;
 
-import java.util.Objects;
 import java.util.stream.Stream;
 
 public enum Movements {
 
-    FORWARD("forward", "f"),
-    BACKWARD("backward", "b"),
-    NORTH("north", "n"),
-    SOUTH("south", "s"),
-    EAST("east", "e"),
-    WEST("west", "w");
+    FORWARD( "f"),
+    BACKWARD( "b"),
+    NORTH( "n"),
+    SOUTH("s"),
+    EAST( "e"),
+    WEST( "w");
 
-    private String name;
     private String command;
 
-    Movements(String name, String command) {
-        this.name = name;
+    Movements(String command) {
         this.command = command;
     }
 
@@ -27,10 +24,4 @@ public enum Movements {
                 .orElse(null);
     }
 
-    public static String getCommand(String name) {
-        return Objects.requireNonNull(Stream.of(Movements.values())
-                .filter(f -> f.name.equals(name))
-                .findFirst()
-                .orElse(null)).command;
-    }
 }
