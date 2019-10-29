@@ -1,5 +1,6 @@
 package com.joantolos.kata.mars.rover.acceptance;
 
+import com.joantolos.kata.mars.rover.domain.Movements;
 import com.joantolos.kata.mars.rover.domain.Rover;
 import com.joantolos.kata.mars.rover.ui.Console;
 import com.joantolos.kata.mars.rover.tools.Compass;
@@ -22,12 +23,12 @@ public class RoverSteps {
 
     @And("^it is \"([^\"]*)\" oriented$")
     public void itIsOriented(String orientation) {
-        this.rover.sendSequence(orientation);
+        this.rover.sendSequence(Movements.getCommand(orientation));
     }
 
     @When("^I perform a \"([^\"]*)\" move$")
     public void iPerformAMove(String move) {
-        this.rover.sendSequence(move);
+        this.rover.sendSequence(Movements.getCommand(move));
     }
 
     @Then("^the position of the mars rover is (\\d+), (\\d+)$")
