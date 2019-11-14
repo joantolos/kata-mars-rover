@@ -20,9 +20,9 @@ public class Rover {
     }
 
     public Boolean sendSequence(String commandStream) {
-        for(char command: commandStream.toCharArray()){
+        for (char command : commandStream.toCharArray()) {
             Movements movement = Movements.byCommand(String.valueOf(command).toLowerCase());
-            if(movement != null) {
+            if (movement != null) {
                 Boolean movementSuccess = this.move(movement);
                 marsMap.render(currentPosition, currentDirection);
                 if (!movementSuccess) {
@@ -37,11 +37,11 @@ public class Rover {
         return true;
     }
 
-    protected Boolean move(Movements movement){
+    protected Boolean move(Movements movement) {
         Position positionProposal = this.currentPosition;
         switch (movement) {
             case FORWARD:
-                switch (currentDirection){
+                switch (currentDirection) {
                     case NORTH:
                         positionProposal = new Position(this.currentPosition.getX(), this.increment(this.currentPosition.getY()));
                         break;
@@ -57,7 +57,7 @@ public class Rover {
                 }
                 break;
             case BACKWARD:
-                switch (currentDirection){
+                switch (currentDirection) {
                     case NORTH:
                         positionProposal = new Position(this.currentPosition.getX(), this.decrement(this.currentPosition.getY()));
                         break;
@@ -85,7 +85,7 @@ public class Rover {
                 this.currentDirection = Compass.WEST;
                 return true;
         }
-        if(this.marsMap.isPositionAvailable(positionProposal)){
+        if (this.marsMap.isPositionAvailable(positionProposal)) {
             this.currentPosition = positionProposal;
             return true;
         }

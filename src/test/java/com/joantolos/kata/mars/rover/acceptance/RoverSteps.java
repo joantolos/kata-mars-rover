@@ -10,7 +10,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 public class RoverSteps {
 
@@ -49,19 +51,16 @@ public class RoverSteps {
 
     @Then("^the rover should abort sequence when obstacle found$")
     public void theRoverShouldAbortSequenceWhenObstacleFound() {
-        Integer numberOfMovementsMade = 0;
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
 
         for(int i=1; i<= rover.getMarsMap().getSize(); i++){
             for(int j=1; j<= rover.getMarsMap().getSize(); j++){
-                if(!rover.sendSequence("f"))
-                    break;
-                    numberOfMovementsMade++;
+                rover.sendSequence("f");
             }
-            if(!rover.sendSequence("EfS"))
-                break;
+            rover.sendSequence("EfS");
         }
 
-        Integer maximumSquaresPossible = rover.getMarsMap().getSize() * rover.getMarsMap().getSize();
-        Assert.assertTrue(numberOfMovementsMade < maximumSquaresPossible);
+        Assert.assertTrue(outContent.toString().contains("Obstacle found! Aborting sequence..."));
     }
 }
